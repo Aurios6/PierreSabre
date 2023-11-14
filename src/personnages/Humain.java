@@ -25,11 +25,11 @@ public class Humain {
 		return amountOfMoney;
 	}
 
-	private void speak(String texte) {
+	protected void speak(String texte) {
 		System.out.println(texte);
 	}
 	public void sayHello() {
-		speak("Bonjour ! Je m’appelle " + name + " et j’aime boire du " + favoriteDrink);
+		speak("Bonjour! Je m’appelle " + name + " et j’aime boire du " + favoriteDrink);
 	}
 	
 	public void drink(String favoriteDrink){
@@ -39,6 +39,7 @@ public class Humain {
 	public void buy(String bien, int price) {
 		if (amountOfMoney > price) {
 			speak("J'ai " + amountOfMoney +" sous en poche. Je vais pouvoir m'offrir " + bien + " à " + price +" sous.");
+			loseMoney(price);
 		}
 		else {
 			speak("Je n'ai plus que "+ amountOfMoney + " sous en poche. Je ne peux même pas m'offrir un " + bien +" à "+ price +" sous.");
